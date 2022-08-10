@@ -39,11 +39,8 @@ function savePost(event) {
             'content-type': 'application/json'
         },
         body: JSON.stringify(new_post)
-    }).then(res => res.json())
-        .then(() => {
-        post_title = '';
-        post_content = '';
     })
+    document.location.replace('/')
 }
 // ON PAGE LOAD
 fetchPosts();

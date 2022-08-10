@@ -2,7 +2,7 @@ const auth_router = require('express').Router();
 const User = require('../models/User');
 const { isLoggedIn } = require('./helpers');
 // REGISTER
-auth_router.post('/register', isLoggedIn, (req, res) => {
+auth_router.post('/register', (req, res) => {
     const { username, email, password } = req.body;
     if(!username || !email || !password) {
         req.session.error = ['PLEASE CHECK YOUR CREDENTIALS'];
@@ -31,7 +31,7 @@ auth_router.post('/register', isLoggedIn, (req, res) => {
     });
 });
 // LOG IN
-auth_router.post('/login', isLoggedIn, (req, res) => {
+auth_router.post('/login', (req, res) => {
     const { email, password } = req.body;
     if(!email || !password) {
         req.session.errors = ['PLEASE CHECK YOUR CREDENTIALS'];
@@ -51,11 +51,11 @@ auth_router.post('/login', isLoggedIn, (req, res) => {
         const pass_is_valid = await user.validatePassword(password, user.password);
         if (!pass_is_valid) {
             req.session.errors = ['YOUR PASSWORD IS INCORRECT'];
-            res.redirect('/login');
+            return res.redirect('/login');
         }
         req.session.save(() => {
             req.session.user_id = user.id
-            res.redirect('/l');
+            res.redirect('/');
         });
     });
 });
@@ -65,6 +65,6 @@ auth_router.get('/logout', (req, res) => {
     req.session.destroy(() => {
         res.redirect('/');
     });
-})
+});
 
 module.exports = auth_router

@@ -1,11 +1,12 @@
+<img src="https://thenationalfrontier.com/wp-content/uploads/2021/04/What_is_Information_Technology-750x536.jpg" alt="">
 {{#if user}}
-<h1>WELCOME {{user.username}}</h1>
 <form action="/posts" method="post">
     <input id="enter_title" type="text">
     <textarea id="enter_content" name="enter_post" placeholder="ENTER YOUR BLOG POST HERE"></textarea>
     <button id="post_btn">POST</button>
-    <div id="posts_div"></div>
 </form>
 {{else}}
-<img src="https://thenationalfrontier.com/wp-content/uploads/2021/04/What_is_Information_Technology-750x536.jpg" alt="">
+<h2><a href="/register">CREATE AN ACCOUNT</a> TO POST</h2>
 {{/if}}
+<div id="posts_div"></div>
+
