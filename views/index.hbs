@@ -1,12 +1,30 @@
-<img src="https://thenationalfrontier.com/wp-content/uploads/2021/04/What_is_Information_Technology-750x536.jpg" alt="">
 {{#if user}}
-<form action="/posts" method="post">
-    <input id="enter_title" type="text">
-    <textarea id="enter_content" name="enter_post" placeholder="ENTER YOUR BLOG POST HERE"></textarea>
-    <button id="post_btn">POST</button>
-</form>
+<a id="post_trigger" class="waves-effect waves-light btn modal-trigger" href="#modal1">CREATE NEW POST</a>
+<a id="topic_trigger" class="waves-effect waves-light btn modal-trigger" href="#modal2">CREATE NEW TOPIC</a>
+<div id="modal1" class="modal">
+    <div class="modal-content"></div>
+        <h4>NEW POST</h4>
+        <form action="/posts" method="post">
+            <input id="enter_title" type="text" placeholder="TITLE OF YOUR BLOG POST">
+            <textarea id="enter_content" name="enter_post" placeholder="BODY OF YOUR BLOG POST"></textarea>
+            <a id="select_topic" class='dropdown-trigger btn-large' href='#' data-target='dropdown1'>SELECT A TOPIC</a>
+            <ul id='dropdown1' class='dropdown-content'></ul>
+            <button id="post_btn" class="waves-effect waves-light btn-large right">POST</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="modal2" class="modal">
+    <div class="modal-content"></div>
+        <h4>NEW POST</h4>
+        <form action="post", method="/topics">
+            <input id="enter_name" type="text" placeholder="NAME OF NEW TOPIC">
+            <button id="create_topic_btn" class="waves-effect waves-light btn-large right">CREATE TOPIC</button>
+            </div>
+        </form>
+    </div>
+</div>
 {{else}}
 <h2><a href="/register">CREATE AN ACCOUNT</a> TO POST</h2>
 {{/if}}
-<div id="posts_div"></div>
-
+<div id="posts_div" class="row"></div>

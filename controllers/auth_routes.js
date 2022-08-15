@@ -1,5 +1,5 @@
 const auth_router = require('express').Router();
-const User = require('../models/User');
+const { User } = require('../models');
 const { isLoggedIn } = require('./helpers');
 // REGISTER
 auth_router.post('/register', (req, res) => {

@@ -1,9 +1,17 @@
 const { DataTypes, Model } = require('sequelize');
 
-class Post extends Model {}
+class Post extends Model {};
 
 Post.init({
     title: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    author: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    topic_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -14,6 +22,6 @@ Post.init({
 }, {
     sequelize: require('../config/connection'),
     modelName: 'post'
-})
+});
 
 module.exports = Post;

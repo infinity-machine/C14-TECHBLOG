@@ -6,29 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NERD ALERT!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <header>
-    <a href="/"><h1>NERD ALERT TECH BLOG</h1></a>
+    <div class="navbar-fixed">
+      <nav>
+        
+        <div class="nav-wrapper">
+          {{#if user}}
+          <span class="email">{{user.email}}</span>
+          <a href="/auth/logout" class="right">Log Out</a>
+          {{else}}
+          <a href="/login">Log In</a>
+          <span>or</span>
+          <a href="/register">JOIN NERD ALERT</a>
+          {{/if}}
+        </div>
+      </nav>
+    </div>
+    <a href="/">
+      <h1>NERD ALERT TECH BLOG</h1>
+    </a>
     <p>the geek table in the internet's cafeteria</p>
-    <nav>
-      {{#if user}}
-        <span class="email">{{user.email}}</span>
-        <a href="/auth/logout">Log Out</a>
-        {{else}}
-        <a href="/login">Log In</a>
-        <span>or</span>
-        <a href="/register">JOIN NERD ALERT</a>
-      {{/if}}
-    </nav>
   </header>
 
   <main>
     {{{body}}}
   </main>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/js/index.js"></script>
 </body>
 
