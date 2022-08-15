@@ -8,7 +8,10 @@
             <input id="enter_title" type="text" placeholder="TITLE OF YOUR BLOG POST">
             <textarea id="enter_content" name="enter_post" placeholder="BODY OF YOUR BLOG POST"></textarea>
             <a id="select_topic" class='dropdown-trigger btn-large' href='#' data-target='dropdown1'>SELECT A TOPIC</a>
-            <ul id='dropdown1' class='dropdown-content'></ul>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li>Hardware</li>
+                <li>Software</li>
+            </ul>
             <button id="post_btn" class="waves-effect waves-light btn-large right">POST</button>
             </div>
         </form>
@@ -16,7 +19,7 @@
 </div>
 <div id="modal2" class="modal">
     <div class="modal-content"></div>
-        <h4>NEW POST</h4>
+        <h4>NEW TOPIC</h4>
         <form action="post", method="/topics">
             <input id="enter_name" type="text" placeholder="NAME OF NEW TOPIC">
             <button id="create_topic_btn" class="waves-effect waves-light btn-large right">CREATE TOPIC</button>

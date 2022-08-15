@@ -13,9 +13,6 @@ function topicText(event) {
 const topics_ul = document.getElementById('dropdown1')
 function outputTopics(data) {
     // select_topic.innerHTML = '';
-    if (!data.length) {
-        topics_ul.innerHTML = '<li>THERE ARE CURRENTLY NO TOPICS</li>'
-    };
     for (i = 0; i < data.length; i++) {
         let topic_li = document.createElement('li');
         topic_li.innerText = data[i].name;
