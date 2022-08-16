@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () { M.AutoInit() })
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.modal');
 });
-// TOPIC TEXT SHOWS SELECTED TOPIC
+// TOPIC TEXT REFLECTS SELECTED TOPIC
 const select_topic = document.getElementById('select_topic')
 function topicText(event) {
     let selected_topic = event.target.innerText
@@ -12,7 +12,6 @@ function topicText(event) {
 // OUTPUT DATABASE CONTAINED TOPICS TO MODAL DROPDOWN
 const topics_ul = document.getElementById('dropdown1')
 function outputTopics(data) {
-    // select_topic.innerHTML = '';
     for (i = 0; i < data.length; i++) {
         let topic_li = document.createElement('li');
         topic_li.innerText = data[i].name;
@@ -82,6 +81,7 @@ function savePost(event) {
     event.preventDefault();
     const post_title = document.getElementById('enter_title').value;
     const post_content = document.getElementById('enter_content').value;
+    if (select_topic.innerText === 'SELECT A TOPIC') select_topic.innerText = 'ALL TOPICS'
     const new_post = {
         title: post_title,
         topic_name: select_topic.innerText,

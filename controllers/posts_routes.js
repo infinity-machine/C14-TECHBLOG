@@ -28,7 +28,7 @@ posts_router.post('/', (req, res) => {
     })
 })
 
-// post_router.get('/test', (req, res) => {
+// posts_router.get('/test', (req, res) => {
 //     const user_id = req.session.user_id
 //     User.findOne({
 //         where: {
